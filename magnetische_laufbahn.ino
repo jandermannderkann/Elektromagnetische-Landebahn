@@ -22,7 +22,7 @@ void setup() {
 void loop() {
   while(!isTurnedOff()){
       if(isActivated()){
-          lights();
+          magnetSequence();
         }
     }
 }
@@ -30,7 +30,7 @@ void loop() {
 /*
  * activates all outputpins once, with the specified delayTime.
  */
-void lights(){
+void magnetSequence(){
   for(int i=0;i<ouputPins.length;i++){
     digitalWrite(outputPins[i],HIGH);
     delay(onTime;);
