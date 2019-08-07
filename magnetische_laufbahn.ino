@@ -8,11 +8,11 @@ int waitTime = 1000;  //  time between activation of the outputPins
  * This Function will set the Modes, of the pins. The offPin for example will be set to inputmode;
  */
 void setup() {
-  for(int i=0; outputPins[i] != -1; i++) {
-      pinMode(outputPins[i], OUTPUT);
-  }  
-  pinMode(offPin, INPUT);
-  pinMode(activationPin, INPUT);
+    for(int i=0; outputPins[i] != -1; i++) {
+        pinMode(outputPins[i], OUTPUT);
+    }  
+    pinMode(offPin, INPUT);
+    pinMode(activationPin, INPUT);
 }
 
 /**
@@ -20,23 +20,23 @@ void setup() {
  * Upon activation of activatioPin, will sequencially activate all the outputPins, with the specified delayTime
  */
 void loop() {
-  while (!isTurnedOff()) {
-      if (isActivated()) {
-          magnetSequence();
-      }
-  }
+    while (!isTurnedOff()) {
+        if (isActivated()) {
+            magnetSequence();
+        }
+    }
 }
   
 /*
  * activates all outputpins once, with the specified delayTime.
  */
 void magnetSequence() {
-  for (int i=0; outputPins[i] != -1; i++) {
-    digitalWrite(outputPins[i], HIGH);
-    delay(onTime);
-    digitalWrite(outputPins[i], LOW);
-    delay(waitTime);
-  }
+    for (int i=0; outputPins[i] != -1; i++) {
+        digitalWrite(outputPins[i], HIGH);
+        delay(onTime);
+        digitalWrite(outputPins[i], LOW);
+        delay(waitTime);
+    }
  }
   
 /**
